@@ -738,7 +738,7 @@ in {
         texlive.combined.scheme-medium # Should it be full?
         (mkIf (elem "+gnuplot" cfg.doomInit.lang.org.flags) gnuplot)
         (mkIf ((elem "+roam2" cfg.doomInit.lang.org.flags)
-          || (elem "+roam" cfg.doomInit.lang.org.flags) sqlite))
+          || (elem "+roam" cfg.doomInit.lang.org.flags)) sqlite)
         (mkIf (elem "+jupiter" cfg.doomInit.lang.org.flags)
           (python3.withPackages (ps: with ps; [ jupyter ])))
       ];
