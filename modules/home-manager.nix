@@ -814,7 +814,7 @@ in {
     })
     (mkIf (cfg.doomInit.lang.scheme.enable
       && (elem "+racket" cfg.doomInit.lang.scheme.flags)) {
-        cfg.doomInit.lang.racket.enable = true;
+        programs.doom-emacs.doomInit.lang.racket.enable = true;
       })
 
     ## SH
