@@ -623,7 +623,7 @@ in {
     ###
 
     ## GDSCRIPT
-    (mkIf (cfg.doomInit.lang.gdscript) {
+    (mkIf (cfg.doomInit.lang.gdscript.enable) {
       home.packages = with pkgs; [ godot python3Packages.gdtoolkit ];
     })
     ###
