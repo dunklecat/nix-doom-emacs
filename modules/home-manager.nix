@@ -735,14 +735,15 @@ in {
     ## ORG
     (mkIf (cfg.doomInit.lang.org.enable) {
       home.packages = with pkgs; [
-        # texlive.combined.scheme-medium # Should it be full?
+        # texlive.combined.scheme-full # Should it be medium?
         (mkIf (elem "+gnuplot" cfg.doomInit.lang.org.flags) gnuplot)
         (mkIf ((elem "+roam2" cfg.doomInit.lang.org.flags)
           || (elem "+roam" cfg.doomInit.lang.org.flags)) sqlite)
         (mkIf (elem "+jupiter" cfg.doomInit.lang.org.flags)
           (python3.withPackages (ps: with ps; [ jupyter ])))
       ];
-      programs.doom-emacs.doomInit.lang.latex.enable = true;
+      programs.doom-emacs.doomInit.lang.latex.enable =
+        true; # This or texlive.combined.scheme-full (or medium) on both options. I'd prefer this.
     })
     ###
 
@@ -899,10 +900,24 @@ in {
 
     ## DIRENV
     (mkIf (cfg.doomInit.tools.direnv.enable) { programs.direnv.enable = true; })
+
+    ######
+    # UI #
+    ######
+
+    ## LIGATURES
+    (mkIf (cfg.doomInit.ui.ligatures.enable) {
+      fonts.fontconfig.enable = true;
+      home.packages = with pkgs;
+        let checkFlag = flag: elem flag cfg.doomInit.ui.ligatures.flags;
+        in [ (mkIf (checkFlag "+fira") fira-code) ];
+      # Notmuch can be installed using accounts.email.accounts.<name>.notmuch.enable. Can/Should we use it?
+    })
   ]
   # this option is not available on darwin platform.
     ++ optional (options.services ? emacs) {
       # Set the service's package but don't enable. Leave that up to the user
       services.emacs.package = emacs;
     }));
+
 }
