@@ -742,8 +742,7 @@ in {
         (mkIf (elem "+jupiter" cfg.doomInit.lang.org.flags)
           (python3.withPackages (ps: with ps; [ jupyter ])))
       ];
-      programs.doom-emacs.doomInit.lang.latex.enable =
-        true; # This or texlive.combined.scheme-full (or medium) on both options. I'd prefer this.
+      programs.doom-emacs.doomInit.lang.latex.enable = true;
     })
     ###
 
@@ -919,5 +918,4 @@ in {
       # Set the service's package but don't enable. Leave that up to the user
       services.emacs.package = emacs;
     }));
-
 }

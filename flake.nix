@@ -41,7 +41,7 @@
     doom-emacs.flake = false;
     doom-snippets.url = "github:doomemacs/snippets";
     doom-snippets.flake = false;
-    emacs-overlay.url = "github:nix-community/emacs-overlay";
+    emacs-overlay.url = "github:nix-community/emacs-overlay/c16be6de78ea878aedd0292aa5d4a1ee0a5da501";
     emacs-overlay.flake = false;
     emacs-so-long.url = "github:hlissner/emacs-so-long";
     emacs-so-long.flake = false;
@@ -53,6 +53,8 @@
     evil-org-mode.flake = false;
     evil-quick-diff.url = "github:rgrinberg/evil-quick-diff";
     evil-quick-diff.flake = false;
+    evil-collection.url = "github:emacs-evil/evil-collection";
+    evil-collection.flake = false;
     explain-pause-mode.url = "github:lastquestion/explain-pause-mode";
     explain-pause-mode.flake = false;
     format-all.url = "github:lassik/emacs-format-all-the-code/47d862d40a088ca089c92cd393c6dca4628f87d3";
