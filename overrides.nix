@@ -32,10 +32,6 @@ self: super: {
     pname = "evil-quick-diff";
   };
 
-  evil-collection = self.straightBuild {
-    pname = "evil-collection";
-  };
-
   magit = super.magit.overrideAttrs (esuper: {
     preBuild = ''
       make VERSION="${esuper.version}" -C lisp magit-version.el
